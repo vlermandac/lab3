@@ -1,0 +1,135 @@
+// ADT
+#include<iostream>
+
+using namespace std;
+
+// Clase abstracta para una ADT de Stack
+
+class StackADT{
+public:
+    virtual void push(int) = 0; // Inserta un elemento al tope del stack
+    virtual void pop() = 0; // Elimina el elemento en el tope del stack
+    virtual int top() = 0; // Retorna el elemento en el tope del stack
+    virtual bool isEmpty() = 0; // Retorna si el stack está vacío o no
+    virtual int size()=0;
+};
+
+#include "StackADT.h"
+
+class ArrayStack : public StackADT {
+private:
+    int* stack;
+    int T;
+    int capacity;
+    int size;
+public:
+    ArrayStack(int capacity);
+    ~ArrayStack();
+    void push(int data);
+    void pop();
+    int top();
+    bool isEmpty();
+    int size();
+};
+
+// ArrayStack.cpp
+
+ArrayStack::ArrayStack(int capacity) {
+    this->capacity = capacity;
+    this->T = -1;
+    this->stack = new int[capacity];
+}
+
+ArrayStack::~ArrayStack() {
+    delete[] stack;
+}
+
+void ArrayStack::push(int data) {
+    
+}
+
+void ArrayStack::pop() {
+    
+}
+
+int ArrayStack::top() {
+    
+}
+
+bool ArrayStack::isEmpty() {
+    
+}
+
+int ArrayStack::size() {
+    
+}
+
+// LinkedListStack.h
+
+#include"StackADT.h"
+
+using namespace std;
+
+class LinkedListStack : public StackADT {
+private:
+//creamos estructura de nodo
+    struct Node {
+        int data;
+        Node* next;
+        Node(int data, Node* next = nullptr) {
+            this->data = data;
+            this->next = next;
+        }
+    };
+//hacemos un nodo para que sea el elemento superior
+    Node* T;
+    //Y un contador :3
+    int count;
+
+public:
+    LinkedListStack();
+    ~LinkedListStack();
+    void push(int data);
+    void pop();
+    int top();
+    bool isEmpty();
+    int size();
+};
+
+// LinkedListStack.cpp
+
+LinkedListStack::LinkedListStack() {
+    top = nullptr;
+    count = 0;
+}
+
+LinkedListStack::~LinkedListStack() {
+    Node* current = T;
+    while (current != nullptr) {
+        Node* next = current->next;
+        delete current;
+        current = next;
+    }
+    T = nullptr;
+    count = 0;
+}
+
+void LinkedListStack::push(int data) {
+    
+}
+
+void LinkedListStack::pop() {
+    
+}
+
+int LinkedListStack::top() {
+    
+}
+
+bool LinkedListStack::isEmpty() {
+    
+}
+
+int LinkedListStack::size() {
+    
+}
